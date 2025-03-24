@@ -8,38 +8,34 @@
 </head>
 <body>
 <div class="container">
-    <h1><b><center>filtro aluno</center></b></h1>
+    <h1><b><center>Filtro por campos</center></b></h1>
 
     <!--Botão carregar alunos-->
     <form action="/filtro" method="post">
         <button type="submit" name="gerar_grid" class="'btn btn-primary">Consultar Alunos</button><br>
-        Digite o nome do aluno<input type="text" name="filtro_input" classs="btn btn-primary"> 
+        Digite o nome do aluno<input type="text" name="filtro_imput" class="btn btn-primary"> 
     </form>
 
+    <br> <br>
     <!--1 linha-->
     {% if alunos %}
-    <table class="table table-striped mt-3">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col">Nome</th>
-            <th scope="col">CPF</th>
-            <th scope="col">Cidade</th>
-            <th scope="col">Estado</th>
-            <th scope="col">Matrícula</th>
-          </tr>
-        </thead>
+    Nome: <input type="text" id="nome" value="">
+    Cidade: <input type="text" id="cidade" value="">
+    CPF: <input type="text" id="cpf" value="">
+    Matrícula: <input type="text" id="matricula" value="">
+    Estado: <input type="text" id="estado" value="">
 
         <!--2 linha-->
         <tbody>
         {% for aluno in alunos %}
-          <tr>
-            <th scope="row"> {{ aluno[0] }}</th>
-            <td>{{ aluno[1] }}</td>
-            <td>{{ aluno[2] }}</td>
-            <td>{{ aluno[3] }}</td>
-            <td>{{ aluno[4] }}</td>
-           
-          </tr>
+        <script>
+          document.getElementById('nome').value = "{{ aluno[1] }}";
+          document.getElementById('cidade').value = "{{ aluno[2] }}";
+          document.getElementById('cpf').value = "{{ aluno[3] }}";
+          document.getElementById('matricula').value = "{{ aluno[4] }}";
+          document.getElementById('estado').value = "{{ aluno[5] }}";
+          
+      </script>
         {% endfor %}
 
     </table>
