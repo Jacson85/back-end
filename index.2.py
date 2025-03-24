@@ -91,6 +91,10 @@ def grid():
         else:
             return render_template('consulta.html', clientes=None)
         
+#Filtro      
+@sistema.rout("/n_filtro", methods=['GET'])
+def n_filtro():
+     return render_template('filtro.html')
 
 #Rota de navegação 
 @sistema.route("/n_cursos", methods=['GET'])
